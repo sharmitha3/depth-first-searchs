@@ -58,33 +58,24 @@ Now, the Stack becomes empty, which means we have visited all the nodes, and our
 <hr>
 ~~~
 from collections import defaultdict
-
 def dfs(graph, start, visited, path):
     path.append(start) 
-    visited[start] = True 
-    
+    visited[start] = True    
     for neighbor in graph[start]:
         if not visited[neighbor]:
-            dfs(graph, neighbor, visited, path)
-    
+            dfs(graph, neighbor, visited, path)   
     return path 
-
 graph = defaultdict(list)
 n, e = map(int, input().split())
-
 for i in range(e):
     u, v = input().split()  
     graph[u].append(v)
     graph[v].append(u) 
-
 start = 'A'
-
 visited = defaultdict(bool)
-
 path = []
 traversedpath = dfs(graph, start, visited, path)
 print(traversedpath)
-
 ~~~
 
 <hr>
